@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- bilangan prima terkecil yang lebih besar dari N -->
+     <h2 style="color: blue;">bilangan prima terkecil yang lebih besar dari N</h2>
+     <label for="bulat">Input bilangan bulat N :</label>
+     <input type="text" name="bilBulat" id="bulat"><br>
+     <label for="bilprima">Bil Prima terkecil yang lebih besar dari N :</label>
+     <input type="text" name="bilPrima" id="bilPrima"><br>
+     <button onclick="cariPrima()">cek</button>
+
+     <script>
+         
+        function prima(n) {
+            var prima=false;
+            var c=0;
+            for (var i= 1; i <= n; i++) {
+                    if (n % i == 0) {
+                        c=c+1;
+                    }
+               }
+               if (c==2) {
+                   prima=true;
+               }
+            return prima;
+        }
+
+        function cariPrima() {
+            var bulat=document.querySelector('#bulat').value;
+            var bilPrima=document.querySelector('#bilPrima');
+            var n=parseInt(bulat);
+
+            if (isNaN(n)) {
+                bilPrima.value="gagal";
+            }else{
+                 while (true) {
+                    n=n+1;
+                    if(prima(n)==true){
+                            bilPrima.value=n;
+                            break;
+                        }
+                }
+            }
+        }
+                    
+     </script>
+</body>
+</html>
